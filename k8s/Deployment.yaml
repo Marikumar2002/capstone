@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstone-demo-deployment
+  labels:
+    app: capstone-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: capstone-demo
+  template:
+    metadata:
+      labels:
+        app: capstone-demo
+    spec:
+      containers:
+        - name: capstone-demo
+          image: marikumar/capstone-demo:latest
+          ports:
+            - containerPort: 8080
