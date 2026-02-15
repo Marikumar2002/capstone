@@ -2,10 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: capstone-demo-deployment
-  labels:
-    app: capstone-demo
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: capstone-demo
@@ -15,7 +13,20 @@ spec:
         app: capstone-demo
     spec:
       containers:
-        - name: capstone-demo
-          image: marikumar/capstone-demo:latest
-          ports:
-            - containerPort: 8080
+      - name: capstone-demo
+        image: marikumar/capstone-demo:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: capstone-demo-service
+spec:
+  type: NodePort
+  selector:
+    app: capstone-demo
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30007
