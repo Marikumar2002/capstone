@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: capstone-demo
-        image: marikumar/capstone-demo:latest
-        imagePullPolicy: Always
+        image: marikumar/capstone-demo:v1
+        
         ports:
         - containerPort: 8080
 ---
