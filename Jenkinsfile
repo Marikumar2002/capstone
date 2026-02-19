@@ -49,6 +49,7 @@ stages {
     stage('Deploy to Kubernetes') {
         steps {
             sh 'kubectl apply -f k8s/deployment.yaml'
+            sh'kubectl rollout restart deployment capstone-demo-deployment'
         }
     }
 }
