@@ -2,7 +2,7 @@ pipeline {
 agent any
 
 environment {
-    DOCKER_IMAGE = "marikumar/capstone-demo:latest"
+    DOCKER_IMAGE = "marikumar/capstone-demo:v1"
 }
 
 tools {
